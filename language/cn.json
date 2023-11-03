@@ -1,4 +1,12 @@
 {
+    "Translate Helper": "提示词翻译助手",
+    "Select Translator": "选择翻译器",
+    "Type to translate.": "在这里输入需要被翻译的中文文本",
+    "Translated text in english.": "这里输出翻译后的英文文本",
+    "Translate": "翻译",
+    "Concat": "补充提示词",
+    "Replace": "替换提示词",
+
     "Loading...": "资源装载中...",
     "Preview": "预览",
     "Finished Images": "完成的图片",

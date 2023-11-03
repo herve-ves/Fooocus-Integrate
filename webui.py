@@ -119,6 +119,67 @@ with shared.gradio_root:
 
                     stop_button.click(stop_clicked, outputs=[skip_button, stop_button], queue=False, js='cancelGenerateForever')
                     skip_button.click(skip_clicked, queue=False)
+
+            region = 'EN'
+            import os
+            os.environ['translators_default_region'] = region
+            from translators.server import translate_text
+
+            translators_map = {
+                'Google': lambda text: translate_text(text,
+                                                      translator='google',
+                                                      from_language='zh',
+                                                      to_language='en',
+                                                      reset_host_url='',
+                                                      check_reset_host_url=False,
+                                                      timeout=30
+                                                      ),
+                'Baidu': lambda text: translate_text(text,
+                                                     translator='baidu',
+                                                     from_language='zh',
+                                                     to_language='en',
+                                                     reset_host_url='',
+                                                     check_reset_host_url=False,
+                                                     timeout=30
+                                                     ),
+                'Bing': lambda text: translate_text(text,
+                                                    translator='bing',
+                                                    from_language='zh',
+                                                    to_language='en',
+                                                    reset_host_url='',
+                                                    check_reset_host_url=False,
+                                                    timeout=30
+                                                    ),
+                'Alibaba': lambda text: translate_text(text,
+                                                       translator='alibaba',
+                                                       from_language='zh',
+                                                       to_language='en',
+                                                       reset_host_url='',
+                                                       check_reset_host_url=False,
+                                                       timeout=30
+                                                       ),
+            }
+            with gr.Accordion('Translate Helper'):
+                with gr.Row(variant='compact'):
+                    with gr.Column(scale=1):
+                        choices = ['Google', 'Baidu', 'Bing', 'Alibaba']
+                        translator_sel = gr.Dropdown(choices=choices, value = choices[0], show_label=False,
+                                                     info="Select Translator")
+                    with gr.Column(scale=8):
+                        original = gr.Textbox(
+                            label='Original', show_label=False, lines=2, placeholder='Type to translate.')
+                        translated = gr.Textbox(
+                            label='English', show_label=False, lines=2, placeholder='Translated text in english.')
+                    with gr.Row():
+                        translate_btn = gr.Button('Translate')
+                        concat_btn = gr.Button('Concat')
+                        replace_btn = gr.Button('Replace')
+            translate_btn.click(fn=lambda translator, original: translators_map[translator](original),
+                                inputs=[translator_sel, original], outputs=translated)
+            concat_btn.click(fn=lambda prompt, translated: translated if prompt == '' else '{}, {}'.format(prompt, translated),
+                             inputs=[prompt, translated], outputs=prompt)
+            replace_btn.click(fn=lambda translated: translated, inputs=[translated], outputs=prompt)
+
             with gr.Row(elem_classes='advanced_check_row'):
                 input_image_checkbox = gr.Checkbox(label='Input Image', value=False, container=False, elem_classes='min_check')
                 advanced_checkbox = gr.Checkbox(label='Advanced', value=modules.config.default_advanced_checkbox, container=False, elem_classes='min_check')

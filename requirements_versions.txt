@@ -16,3 +16,7 @@ pygit2==1.12.2
 opencv-contrib-python==4.8.0.74
 httpx==0.24.1
 gradio-legacyimage==0.0.3
+PyExecJS
+lxml
+pathos
+cryptography
