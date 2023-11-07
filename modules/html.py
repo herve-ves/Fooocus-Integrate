@@ -112,6 +112,10 @@ progress::after {
     margin-left: -5px !important;
 }
 
+/* Hide the footer */
+footer {
+  visibility: hidden;
+}
 '''
 progress_html = '''
 <div class="loader-container">

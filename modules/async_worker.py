@@ -643,7 +643,7 @@ def worker():
             outputs.append(['preview', (
                 int(15.0 + 85.0 * float(done_steps) / float(all_steps)),
                 f'Step {step}/{total_steps} in the {current_task_id + 1}-th Sampling',
-                y)])
+                resize_image(y, width=y.shape[1]//10, height=y.shape[0]//10))])
 
         for current_task_id, task in enumerate(tasks):
             execution_start_time = time.perf_counter()
