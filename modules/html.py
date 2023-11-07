@@ -100,6 +100,10 @@ progress::after {
   overflow: auto !important;
 }
 
+/* Hide the footer */
+footer {
+  visibility: hidden;
+}
 '''
 progress_html = '''
 <div class="loader-container">
