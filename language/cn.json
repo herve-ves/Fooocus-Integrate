@@ -23,6 +23,7 @@
     "Image Prompt": "图像提示词",
     "Inpaint or Outpaint (beta)": "内部重绘或外部扩展",
     "Drag above image to here": "将图像拖到这里",
+    "Drag above image to here and draw mask": "将图像拖到这里并涂画出需要重绘的部分",
     "Alt + wheel": "Alt + 鼠标滚轮",
     "Ctrl + wheel": "Ctrl + 鼠标滚轮",
     "- Zoom canvas": "：缩放画布",
