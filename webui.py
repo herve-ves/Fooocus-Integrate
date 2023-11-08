@@ -174,8 +174,17 @@ with shared.gradio_root:
             with gr.Row(elem_classes='advanced_check_row'):
                 input_image_checkbox = gr.Checkbox(label='Input Image', value=False, container=False, elem_classes='min_check')
                 advanced_checkbox = gr.Checkbox(label='Advanced', value=modules.path.default_advanced_checkbox, container=False, elem_classes='min_check')
+            
+            current_tab = gr.Textbox(value='inpaint', visible=False)
+
             with gr.Row(visible=False) as image_input_panel:
                 with gr.Tabs():
+                    with gr.TabItem(label='Inpaint or Outpaint (beta)') as inpaint_tab:
+                        inpaint_input_image = grh.Image(label='Drag above image to here', source='upload', type='numpy', tool='sketch', height=500, brush_color="#FFFFFF", elem_id='inpaint_canvas')
+                        gr.HTML('Outpaint Expansion Direction:')
+                        outpaint_selections = gr.CheckboxGroup(choices=['Left', 'Right', 'Top', 'Bottom'], value=[], label='Outpaint', show_label=False, container=False)
+                        gr.HTML('* Powered by Fooocus Inpaint Engine (beta) <a href="https://github.com/lllyasviel/Fooocus/discussions/414" target="_blank">\U0001F4D4 Document</a>')
+
                     with gr.TabItem(label='Upscale or Variation') as uov_tab:
                         with gr.Row():
                             with gr.Column():
@@ -183,6 +192,7 @@ with shared.gradio_root:
                             with gr.Column():
                                 uov_method = gr.Radio(label='Upscale or Variation:', choices=flags.uov_list, value=flags.disabled)
                                 gr.HTML('<a href="https://github.com/lllyasviel/Fooocus/discussions/390" target="_blank">\U0001F4D4 Document</a>')
+                    
                     with gr.TabItem(label='Image Prompt') as ip_tab:
                         with gr.Row():
                             ip_images = []
@@ -226,19 +236,12 @@ with shared.gradio_root:
                         ip_advanced.change(ip_advance_checked, inputs=ip_advanced,
                                            outputs=ip_ad_cols + ip_types + ip_stops + ip_weights, queue=False)
 
-                    with gr.TabItem(label='Inpaint or Outpaint (beta)') as inpaint_tab:
-                        inpaint_input_image = grh.Image(label='Drag above image to here', source='upload', type='numpy', tool='sketch', height=500, brush_color="#FFFFFF", elem_id='inpaint_canvas')
-                        gr.HTML('Outpaint Expansion Direction:')
-                        outpaint_selections = gr.CheckboxGroup(choices=['Left', 'Right', 'Top', 'Bottom'], value=[], label='Outpaint', show_label=False, container=False)
-                        gr.HTML('* Powered by Fooocus Inpaint Engine (beta) <a href="https://github.com/lllyasviel/Fooocus/discussions/414" target="_blank">\U0001F4D4 Document</a>')
-
             switch_js = "(x) => {if(x){setTimeout(() => window.scrollTo({ top: 850, behavior: 'smooth' }), 50);}else{setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);} return x}"
             down_js = "() => {setTimeout(() => window.scrollTo({ top: 850, behavior: 'smooth' }), 50);}"
 
             input_image_checkbox.change(lambda x: gr.update(visible=x), inputs=input_image_checkbox, outputs=image_input_panel, queue=False, _js=switch_js)
             ip_advanced.change(lambda: None, queue=False, _js=down_js)
 
-            current_tab = gr.Textbox(value='uov', visible=False)
             uov_tab.select(lambda: 'uov', outputs=current_tab, queue=False, _js=down_js, show_progress=False)
             inpaint_tab.select(lambda: 'inpaint', outputs=current_tab, queue=False, _js=down_js, show_progress=False)
             ip_tab.select(lambda: 'ip', outputs=current_tab, queue=False, _js=down_js, show_progress=False)
@@ -452,6 +455,6 @@ shared.gradio_root.launch(
     server_name=args_manager.args.listen,
     server_port=args_manager.args.port,
     share=args_manager.args.share,
-    auth=check_auth if args_manager.args.share and auth_enabled else None,
+    auth=check_auth if auth_enabled else None,
     blocked_paths=[constants.AUTH_FILENAME]
 )
