@@ -330,6 +330,7 @@
     "4Guofeng4XL_v10RealBeta.safetensors": "国风真人模型 4Guofeng4XL_v10RealBeta",
     "4Guofeng4XL_v1125D.safetensors": "国风动漫模型 4Guofeng4XL_v1125D",
     "SDXLRonghua_v30.safetensors": "国风容华 SDXLRonghua_v30",
+    "juggernautXL_version6Rundiffusion.safetensors": "电影风格 JuggernautXL_V6+RunDiffusion",
     "Refiner (SDXL or SD 1.5)": "精修模型 （支持SDXL 或 SD 1.5）",
     "None": "无",
     "LoRAs": "LoRAs模型",
