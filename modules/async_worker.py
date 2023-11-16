@@ -586,7 +586,7 @@ def worker():
                     return
             for task in cn_tasks[flags.cn_ip_face]:
                 cn_img, cn_stop, cn_weight = task
-                cn_img = HWC3(cn_img)
+                cn_img = HWC3(cn_img['back'])
 
                 if not advanced_parameters.skipping_cn_preprocessor:
                     cn_img = fooocus_extras.face_crop.crop_image(cn_img)
