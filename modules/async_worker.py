@@ -636,7 +636,7 @@ def worker():
                     zsnr=False)[0]
             print('Using lcm scheduler.')
 
-        outputs.append(['preview', (13, 'Moving model to GPU ...', None)])
+        progressbar(13, 'Moving model to GPU ...')
 
         def callback(step, x0, x, total_steps, y):
             done_steps = current_task_id * steps + step

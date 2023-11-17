@@ -16,7 +16,8 @@ def localization_js(filename):
                 with open(full_name, encoding='utf-8') as f:
                     current_translation = json.load(f)
                     assert isinstance(current_translation, dict)
-                    for k, v in current_translation.items():
+                    assert isinstance(current_translation['plain'], dict)
+                    for k, v in current_translation['plain'].items():
                         assert isinstance(k, str)
                         assert isinstance(v, str)
             except Exception as e:

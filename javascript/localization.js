@@ -29,12 +29,19 @@ function getTranslation(text) {
         original_lines[text] = 1;
     }
 
-    var tl = localization[text];
+    var tl = localization['plain'][text];
     if (tl !== undefined) {
         translated_lines[tl] = 1;
+        return tl;
     }
 
-    return tl;
+    for (const [k, v] of Object.entries(localization['rules'])) {
+        var regex = new RegExp(k);
+        if (text.search(regex) >= 0) {
+            return text.replace(regex, v);
+        }
+    }
+    return undefined;
 }
 
 function processTextNode(node) {
