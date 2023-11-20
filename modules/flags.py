@@ -33,4 +33,5 @@ default_parameters = {
 }  # stop, weight
 
 inpaint_engine_versions = ['v1', 'v2.5', 'v2.6']
-performance_selections = ['Speed', 'Quality', 'Extreme Speed']
+# performance_selections = ['Speed', 'Quality', 'Extreme Speed']
+performance_selections = ['Speed', 'Quality']

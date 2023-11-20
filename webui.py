@@ -13,9 +13,9 @@ import modules.constants as constants
 import modules.flags as flags
 
 import modules.advanced_parameters as advanced_parameters
-import modules.style_sorter as style_sorter
+# import modules.style_sorter as style_sorter
 import args_manager
-import copy
+# import copy
 
 from modules.sdxl_styles import legal_style_names
 from modules.private_logger import get_current_html_path
@@ -293,40 +293,45 @@ with shared.gradio_root:
                     gr.HTML(f'<a href="/file={get_current_html_path()}" target="_blank">\U0001F4DA History Log</a>')
 
             with gr.Tab(label='Style'):
-                style_sorter.try_load_sorted_styles(
-                    style_names=legal_style_names,
-                    default_selected=modules.config.default_styles)
-
-                style_search_bar = gr.Textbox(show_label=False, container=False,
-                                              placeholder="\U0001F50E Type here to search styles ...",
-                                              value="",
-                                              label='Search Styles')
                 style_selections = gr.CheckboxGroup(show_label=False, container=False,
-                                                    choices=copy.deepcopy(style_sorter.all_styles),
-                                                    value=copy.deepcopy(modules.config.default_styles),
-                                                    label='Selected Styles',
-                                                    elem_classes=['style_selections'])
-                gradio_receiver_style_selections = gr.Textbox(elem_id='gradio_receiver_style_selections', visible=False)
+                                                    choices=legal_style_names,
+                                                    value=modules.config.default_styles,
+                                                    label='Image Style')
 
-                shared.gradio_root.load(lambda: gr.update(choices=copy.deepcopy(style_sorter.all_styles)),
-                                        outputs=style_selections)
+                # style_sorter.try_load_sorted_styles(
+                #     style_names=legal_style_names,
+                #     default_selected=modules.config.default_styles)
 
-                style_search_bar.change(style_sorter.search_styles,
-                                        inputs=[style_selections, style_search_bar],
-                                        outputs=style_selections,
-                                        queue=False,
-                                        show_progress=False).then(
-                    lambda: None, js='()=>{refresh_style_localization();}')
+                # style_search_bar = gr.Textbox(show_label=False, container=False,
+                #                               placeholder="\U0001F50E Type here to search styles ...",
+                #                               value="",
+                #                               label='Search Styles')
+                # style_selections = gr.CheckboxGroup(show_label=False, container=False,
+                #                                     choices=copy.deepcopy(style_sorter.all_styles),
+                #                                     value=copy.deepcopy(modules.config.default_styles),
+                #                                     label='Selected Styles',
+                #                                     elem_classes=['style_selections'])
+                # gradio_receiver_style_selections = gr.Textbox(elem_id='gradio_receiver_style_selections', visible=False)
 
-                gradio_receiver_style_selections.input(style_sorter.sort_styles,
-                                                       inputs=style_selections,
-                                                       outputs=style_selections,
-                                                       queue=False,
-                                                       show_progress=False).then(
-                    lambda: None, js='()=>{refresh_style_localization();}')
+                # shared.gradio_root.load(lambda: gr.update(choices=copy.deepcopy(style_sorter.all_styles)),
+                #                         outputs=style_selections)
+
+                # style_search_bar.change(style_sorter.search_styles,
+                #                         inputs=[style_selections, style_search_bar],
+                #                         outputs=style_selections,
+                #                         queue=False,
+                #                         show_progress=False).then(
+                #     lambda: None, js='()=>{refresh_style_localization();}')
+
+                # gradio_receiver_style_selections.input(style_sorter.sort_styles,
+                #                                        inputs=style_selections,
+                #                                        outputs=style_selections,
+                #                                        queue=False,
+                #                                        show_progress=False).then(
+                #     lambda: None, js='()=>{refresh_style_localization();}')
 
             with gr.Tab(label='Model'):
-                with gr.Row():
+                with gr.Row(visible=not args_manager.args.enable_silly_mode):
                     base_model = gr.Dropdown(label='Base Model (SDXL only)', choices=modules.config.model_filenames, value=modules.config.default_base_model_name, show_label=True)
                     refiner_model = gr.Dropdown(label='Refiner (SDXL or SD 1.5)', choices=['None'] + modules.config.model_filenames, value=modules.config.default_refiner_model_name, show_label=True)
 
@@ -341,7 +346,7 @@ with shared.gradio_root:
                 refiner_model.change(lambda x: gr.update(visible=x != 'None'),
                                      inputs=refiner_model, outputs=refiner_switch, show_progress=False, queue=False)
 
-                with gr.Accordion(label='LoRAs (SDXL or SD 1.5)', open=True):
+                with gr.Accordion(label='LoRAs (SDXL or SD 1.5)', open=True, visible=not args_manager.args.enable_silly_mode):
                     lora_ctrls = []
 
                     for i, (n, v) in enumerate(modules.config.default_loras):
@@ -350,15 +355,19 @@ with shared.gradio_root:
                             lora_weight = gr.Slider(label='Weight', minimum=-2, maximum=2, step=0.01, value=v,
                                                     elem_classes='lora_weight')
                             lora_ctrls += [lora_model, lora_weight]
+
                 with gr.Row():
-                    model_refresh = gr.Button(value='\U0001f504 Refresh All Files', variant='secondary', elem_classes='refresh_button')
+                    model_refresh = gr.Button(value='\U0001f504 Refresh All Files', variant='secondary', elem_classes='refresh_button',
+                                              interactive=not args_manager.args.enable_silly_mode)
+
             with gr.Tab(label='Advanced'):
                 sharpness = gr.Slider(label='Sampling Sharpness', minimum=0.0, maximum=30.0, step=0.001, value=modules.config.default_sample_sharpness,
                                       info='Higher value means image and texture are sharper.')
                 guidance_scale = gr.Slider(label='Guidance Scale', minimum=1.0, maximum=30.0, step=0.01, value=modules.config.default_cfg_scale,
                                       info='Higher value means style is cleaner, vivider, and more artistic.')
                 gr.HTML('<a href="https://github.com/lllyasviel/Fooocus/discussions/117" target="_blank">\U0001F4D4 Document</a>')
-                dev_mode = gr.Checkbox(label='Developer Debug Mode', value=False, container=False)
+
+                dev_mode = gr.Checkbox(label='Developer Debug Mode', value=False, container=False, interactive=not args_manager.args.enable_silly_mode)
 
                 with gr.Column(visible=False) as dev_tools:
                     with gr.Tab(label='Developer Debug Tools'):
