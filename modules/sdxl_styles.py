@@ -25,13 +25,10 @@ def normalize_key(k):
 
 styles = {}
 
-styles_files = get_files_from_folder(styles_path, ['.json'])
+styles_files = get_files_from_folder(styles_path, ['.json'], '_r_')
 
-for x in ['sdxl_styles_fooocus.json',
-          'sdxl_styles_sai.json',
-          'sdxl_styles_mre.json',
-          'sdxl_styles_twri.json',
-          'sdxl_styles_diva.json']:
+for x in ['sdxl_styles_fooocus_r_.json', 'sdxl_styles_sai_r_.json', 'sdxl_styles_twri_r_.json',
+          'sdxl_styles_diva_r_.json', 'sdxl_styles_mre_r_.json']:
     if x in styles_files:
         styles_files.remove(x)
         styles_files.append(x)

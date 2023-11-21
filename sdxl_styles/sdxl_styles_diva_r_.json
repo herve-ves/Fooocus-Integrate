@@ -1,0 +1,82 @@
+[
+    {
+        "name": "cinematic-diva",
+        "prompt": "UHD, 8K, ultra detailed, a cinematic photograph of {prompt}, beautiful lighting, great composition",
+        "negative_prompt": "ugly, deformed, noisy, blurry, NSFW"
+    },
+    {
+        "name": "Action Figure",
+        "prompt": "Action Figure, {prompt}, plastic collectable action figure, collectable toy action figure",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Adorable 3D Character",
+        "prompt": "Adorable 3D Character, {prompt}, 3D render, adorable character, 3D art",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, grunge, sloppy, unkempt, photograph, photo, realistic"
+    },
+    {
+        "name": "Blueprint Schematic Drawing",
+        "prompt": "Blueprint Schematic Drawing, {prompt}, technical drawing, blueprint, schematic",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Cel Shaded Art",
+        "prompt": "Cel Shaded Art, {prompt}, 2D, flat color, toon shading, cel shaded style",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Character Design Sheet",
+        "prompt": "Character Design Sheet, {prompt}, character reference sheet, character turn around",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Flat 2D Art",
+        "prompt": "Flat 2D Art, {prompt}, simple flat color, 2-dimensional, Flat 2D Art Style",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, 3D, photo, realistic"
+    },
+    {
+        "name": "Infographic Drawing",
+        "prompt": "Infographic Drawing, {prompt}, diagram, infographic",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Logo Design",
+        "prompt": "Logo Design, {prompt}, dynamic graphic art, vector art, minimalist, professional logo design",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Marker Drawing",
+        "prompt": "Marker Drawing, {prompt}, bold marker lines, visibile paper texture, marker drawing",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, photograph, realistic"
+    },
+    {
+        "name": "Pencil Sketch Drawing",
+        "prompt": "Pencil Sketch Drawing, {prompt}, black and white drawing, graphite drawing",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Simple Vector Art",
+        "prompt": "Simple Vector Art, {prompt}, 2D flat, simple shapes, minimalistic, professional graphic, flat color, high contrast, Simple Vector Art",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, 3D, photo, realistic"
+    },
+    {
+        "name": "Sketchup",
+        "prompt": "Sketchup, {prompt}, CAD, professional design, Sketchup",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, photo, photograph"
+    },
+    {
+        "name": "Sticker Designs",
+        "prompt": "Vector Art Stickers, {prompt}, professional vector design, sticker designs, Sticker Sheet",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast"
+    },
+    {
+        "name": "Watercolor 2",
+        "prompt": "Watercolor style painting, {prompt}, visible paper texture, colorwash, watercolor",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, photo, realistic"
+    },
+    {
+        "name": "Whimsical and Playful",
+        "prompt": "Whimsical and Playful, {prompt}, imaginative, fantastical, bight colors, stylized, happy, Whimsical and Playful",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, drab, boring, moody"
+    }
+]

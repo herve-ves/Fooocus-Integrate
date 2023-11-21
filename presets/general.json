@@ -6,7 +6,8 @@
     "default_sampler": "dpmpp_2m_sde_gpu",
     "default_scheduler": "karras",
     "default_styles": [
-        "Fooocus V2"
+        "Fooocus V2",
+        "Fooocus Enhance"
     ],
     "default_negative_prompt": "",
     "default_positive_prompt": "",

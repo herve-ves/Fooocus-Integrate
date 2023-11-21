@@ -1,0 +1,127 @@
+[
+    {
+        "name": "ads-advertising",
+        "prompt": "advertising poster style {prompt} . Professional, modern, product-focused, commercial, eye-catching, highly detailed",
+        "negative_prompt": "noisy, blurry, amateurish, sloppy, unattractive"
+    },
+    {
+        "name": "ads-automotive",
+        "prompt": "automotive advertisement style {prompt} . sleek, dynamic, professional, commercial, vehicle-focused, high-resolution, highly detailed",
+        "negative_prompt": "noisy, blurry, unattractive, sloppy, unprofessional"
+    },
+    {
+        "name": "ads-corporate",
+        "prompt": "corporate branding style {prompt} . professional, clean, modern, sleek, minimalist, business-oriented, highly detailed",
+        "negative_prompt": "noisy, blurry, grungy, sloppy, cluttered, disorganized"
+    },
+    {
+        "name": "ads-food photography",
+        "prompt": "food photography style {prompt} . appetizing, professional, culinary, high-resolution, commercial, highly detailed",
+        "negative_prompt": "unappetizing, sloppy, unprofessional, noisy, blurry"
+    },
+    {
+        "name": "ads-gourmet food photography",
+        "prompt": "gourmet food photo of {prompt} . soft natural lighting, macro details, vibrant colors, fresh ingredients, glistening textures, bokeh background, styled plating, wooden tabletop, garnished, tantalizing, editorial quality",
+        "negative_prompt": "cartoon, anime, sketch, grayscale, dull, overexposed, cluttered, messy plate, deformed"
+    },  
+    {
+        "name": "ads-luxury",
+        "prompt": "luxury product style {prompt} . elegant, sophisticated, high-end, luxurious, professional, highly detailed",
+        "negative_prompt": "cheap, noisy, blurry, unattractive, amateurish"
+    },
+    {
+        "name": "ads-real estate",
+        "prompt": "real estate photography style {prompt} . professional, inviting, well-lit, high-resolution, property-focused, commercial, highly detailed",
+        "negative_prompt": "dark, blurry, unappealing, noisy, unprofessional"
+    },
+    {
+        "name": "ads-retail",
+        "prompt": "retail packaging style {prompt} . vibrant, enticing, commercial, product-focused, eye-catching, professional, highly detailed",
+        "negative_prompt": "noisy, blurry, amateurish, sloppy, unattractive"
+    },
+    {
+        "name": "artstyle-abstract",
+        "prompt": "abstract style {prompt} . non-representational, colors and shapes, expression of feelings, imaginative, highly detailed",
+        "negative_prompt": "realistic, photographic, figurative, concrete"
+    },
+    {
+        "name": "artstyle-constructivist",
+        "prompt": "constructivist style {prompt} . geometric shapes, bold colors, dynamic composition, propaganda art style",
+        "negative_prompt": "realistic, photorealistic, low contrast, plain, simple, abstract expressionism"
+    },
+    {
+        "name": "artstyle-graffiti",
+        "prompt": "graffiti style {prompt} . street art, vibrant, urban, detailed, tag, mural",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, realism, photorealistic"
+    },
+    {
+        "name": "artstyle-pop art",
+        "prompt": "pop Art style {prompt} . bright colors, bold outlines, popular culture themes, ironic or kitsch",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, realism, photorealistic, minimalist"
+    },
+    {
+        "name": "artstyle-watercolor",
+        "prompt": "watercolor painting {prompt} . vibrant, beautiful, painterly, detailed, textural, artistic",
+        "negative_prompt": "anime, photorealistic, 35mm film, deformed, glitch, low contrast, noisy"
+    },
+    {
+        "name": "futuristic-sci-fi",
+        "prompt": "sci-fi style {prompt} . futuristic, technological, alien worlds, space themes, advanced civilizations",
+        "negative_prompt": "ugly, deformed, noisy, blurry, low contrast, realism, photorealistic, historical, medieval"
+    },
+    {
+        "name": "futuristic-vaporwave",
+        "prompt": "vaporwave style {prompt} . retro aesthetic, cyberpunk, vibrant, neon colors, vintage 80s and 90s style, highly detailed",
+        "negative_prompt": "monochrome, muted colors, realism, rustic, minimalist, dark"
+    },
+    {
+        "name": "game-bubble bobble",
+        "prompt": "Bubble Bobble style {prompt} . 8-bit, cute, pixelated, fantasy, vibrant, reminiscent of Bubble Bobble game",
+        "negative_prompt": "realistic, modern, photorealistic, violent, horror"
+    },
+    {
+        "name": "game-fighting game",
+        "prompt": "fighting game style {prompt} . dynamic, vibrant, action-packed, detailed character design, reminiscent of fighting video games",
+        "negative_prompt": "peaceful, calm, minimalist, photorealistic"
+    },
+    {
+        "name": "game-mario",
+        "prompt": "Super Mario style {prompt} . vibrant, cute, cartoony, fantasy, playful, reminiscent of Super Mario series",
+        "negative_prompt": "realistic, modern, horror, dystopian, violent"
+    },
+    {
+        "name": "game-minecraft",
+        "prompt": "Minecraft style {prompt} . blocky, pixelated, vibrant colors, recognizable characters and objects, game assets",
+        "negative_prompt": "smooth, realistic, detailed, photorealistic, noise, blurry, deformed"
+    },
+    {
+        "name": "misc-kawaii",
+        "prompt": "kawaii style {prompt} . cute, adorable, brightly colored, cheerful, anime influence, highly detailed",
+        "negative_prompt": "dark, scary, realistic, monochrome, abstract"
+    },
+    {
+        "name": "misc-monochrome",
+        "prompt": "monochrome {prompt} . black and white, contrast, tone, texture, detailed",
+        "negative_prompt": "colorful, vibrant, noisy, blurry, deformed"
+    },
+    {
+        "name": "papercraft-kirigami",
+        "prompt": "kirigami representation of {prompt} . 3D, paper folding, paper cutting, Japanese, intricate, symmetrical, precision, clean lines",
+        "negative_prompt": "painting, drawing, 2D, noisy, blurry, deformed"
+    },
+    {
+        "name": "papercraft-paper quilling",
+        "prompt": "paper quilling art of {prompt} . intricate, delicate, curling, rolling, shaping, coiling, loops, 3D, dimensional, ornamental",
+        "negative_prompt": "photo, painting, drawing, 2D, flat, deformed, noisy, blurry"
+    },
+    {
+        "name": "papercraft-stacked papercut",
+        "prompt": "stacked papercut art of {prompt} . 3D, layered, dimensional, depth, precision cut, stacked layers, papercut, high contrast",
+        "negative_prompt": "2D, flat, noisy, blurry, painting, drawing, photo, deformed"
+    },
+    {
+        "name": "papercraft-thick layered papercut",
+        "prompt": "thick layered papercut art of {prompt} . deep 3D, volumetric, dimensional, depth, thick paper, high stack, heavy texture, tangible layers",
+        "negative_prompt": "2D, flat, thin paper, low stack, smooth texture, painting, drawing, photo, deformed"
+    }
+]

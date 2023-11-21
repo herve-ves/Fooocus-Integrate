@@ -79,6 +79,14 @@ shared.gradio_root = gr.Blocks(
     css=modules.html.css).queue()
 
 with shared.gradio_root:
+    gr.HTML(value='''
+            <div class="guides-container">
+              <a class="guides-link" href="/guides">
+                \U0001F4A1 Guides
+              </a>
+            </div>
+            ''')
+
     with gr.Row():
         with gr.Column(scale=2):
             with gr.Row():

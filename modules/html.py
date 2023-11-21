@@ -116,6 +116,16 @@ progress::after {
 footer {
   visibility: hidden;
 }
+
+.guides-container {
+  text-align: center !important;
+}
+
+.guides-link {
+  font-size: 15px;
+  text-decoration: none !important;
+  color: white !important;
+}
 '''
 progress_html = '''
 <div class="loader-container">
