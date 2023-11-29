@@ -524,7 +524,7 @@ shared.gradio_root.launch(
     server_name=args_manager.args.listen,
     server_port=args_manager.args.port,
     share=args_manager.args.share,
-    auth=check_auth if auth_enabled else None,
+    auth=check_auth if not args_manager.args.disable_auth and auth_enabled else None,
     blocked_paths=[constants.AUTH_FILENAME],
     allowed_paths=allowed_paths
 )

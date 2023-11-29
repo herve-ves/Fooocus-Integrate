@@ -100,6 +100,7 @@ parser.add_argument("--windows-standalone-build", action="store_true", help="Win
 parser.add_argument("--disable-metadata", action="store_true", help="Disable saving prompt metadata in files.")
 
 parser.add_argument("--enable-silly-mode", action="store_true", help="Enable silly mode.")
+parser.add_argument("--disable-auth", action="store_true", help="Disable authorization.")
 
 if fcbh.options.args_parsing:
     args = parser.parse_args()
